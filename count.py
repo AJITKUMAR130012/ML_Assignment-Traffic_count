@@ -4,6 +4,7 @@ import time
 import numpy as np
 from ultralytics import YOLO
 from collections import defaultdict
+import matplotlib.pyplot as plt
 
 model=YOLO('traffic_best_n.pt')
 
@@ -201,5 +202,37 @@ print(f"Buses: {len(total_bus)}")
 print(f"Trucks: {len(total_truck)}")
 print(f"Motorcycles: {len(total_motorcycle)}")
 print(f"Auto: {len(total_passenger_auto)}")
+
+
+data = {
+    'Category': ['Person', 'Cars', 'Buses', 'Trucks', 'Motorcycles', 'Auto'],
+    'Count': [
+        len(total_person),
+        len(total_car),
+        len(total_bus),
+        len(total_truck),
+        len(total_motorcycle),
+        len(total_passenger_auto)
+    ]
+}
+
+# Create a DataFrame using the dictionary
+df = pd.DataFrame(data)
+
+# Print the DataFrame (optional)
+print(df)
+
+# Plot the data as a bar chart
+plt.figure(figsize=(10, 6))
+plt.bar(df['Category'], df['Count'], color='skyblue')
+
+# Add labels and title
+plt.xlabel('Vehicle/Person Category')
+plt.ylabel('Count')
+plt.title('Counts of Detected Vehicles and Persons')
+plt.savefig('result.jpg', format='jpg')
+# Show the bar chart
+plt.show()
+
 cap.release()
 cv2.destroyAllWindows()
