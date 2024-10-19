@@ -1,0 +1,10 @@
+Bus
+Car
+Cycle
+Cycle-Rickshaw
+Goods-Auto
+Mini-Truck
+Motorcycle
+Passengers-Auto
+Person
+Truck
