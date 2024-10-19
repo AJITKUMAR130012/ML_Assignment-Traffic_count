@@ -176,7 +176,7 @@ while cap.isOpened():
             cv2.putText(annotated_frame, f"Auto: {len(total_passenger_auto)}", (10, 170), cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 0, 255), 2)
             cv2.putText(annotated_frame, f"FPS: {fps:.2f}", (10, 200), cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 255, 0), 2, cv2.LINE_AA)
             # Display the annotated frame
-            cv2.imshow("YOLOv8 Tracking", annotated_frame)
+            #cv2.imshow("YOLOv8 Tracking", annotated_frame)
             # print(f"Person: {len(total_person)}")
             # print(f"Cars: {len(total_car)}")
             # print(f"Buses: {len(total_bus)}")
@@ -187,12 +187,19 @@ while cap.isOpened():
             
         
         # Break the loop if 'q' is pressed
-        if cv2.waitKey(1) & 0xFF == ord("q"):
-            break
+        # if cv2.waitKey(1) & 0xFF == ord("q"):
+        #     break
     else:
         # Break the loop if the end of the video is reached
         break
 # print(elapsed_time)
 # Release the video capture object and close the display window
+
+print(f"Person: {len(total_person)}")
+print(f"Cars: {len(total_car)}")
+print(f"Buses: {len(total_bus)}")
+print(f"Trucks: {len(total_truck)}")
+print(f"Motorcycles: {len(total_motorcycle)}")
+print(f"Auto: {len(total_passenger_auto)}")
 cap.release()
 cv2.destroyAllWindows()
